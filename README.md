@@ -1,22 +1,5 @@
-# How to use this template:
-
-When creating a new repository just select this template, or click on the green "use template" button
-
-![new-repo-gif](https://raw.githubusercontent.com/zenitheesc/new-zenith-template/assets/novo-repo.gif)
-
-[Adding the template to a NEW repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template)
-
-Do **NOT** check "Include All Branches"
-
-
-**Delete** this file (README.md). Choose a template and **rename** it as 'README.md'
-
-    For example: **Delete** this file and **rename** the "[TEMPLATE]README.md" to just "README.md". Wait a few minutes for the bot to process the changes 	and you're good to go 😃
-
----
-
-<h1 align="center" style="color:white; background-color:black">[PROJECT NAME]</h1>
-<h4 align="center">[insert *brief* project description]</h4>
+<h1 align="center" style="color:white; background-color:black">[Obsat-Telemetry]</h1>
+<h4 align="center">Zenith Web Server for OBSAT telemetry tests</h4>
 
 <p align="center">
 	<a href="http://zenith.eesc.usp.br/">
@@ -54,22 +37,40 @@ Do **NOT** check "Include All Branches"
     <a href="#how-to-contribute">How to contribute?</a>
 </p>
 
-## Environment and tools
 
-`Add list of dependencies and software needed to run this project (if possible add the versions that were used in development).`
 
-## Steps to run and debug
+## Utilização do servidor de teste (Para participantes)
 
-`A simple list of steps indicating how one can run and test the project.`
+Na IDE do Arduino, certifique-se que a biblioteca ESP32 esteja instalada, Clique no [link](https://www.youtube.com/watch?v=Ozr1SXwir9g) caso não saiba como instalar. Selecione a placa desejada é de upload no codigo `obsat-server.ino`. Os parametros de acesso são:
+- ssid: `obsat-test-server`
+- psk: `obsatkey`
 
-## How to contribute
+Agora basta implementar sua logica para acessar o servidor Web. O servidor apenas coleta dados de objetos chamados `"payload"`
 
-`(optional, depends on the project) list of simple rules to help people work on the project.`
+#### Exemplo
+```
+{
+  ...
+  "payload": {
+    "Temperatura": 31,
+    "Pressao": 234,
+    "pH": 4.213,
+    "Valido1": true,
+    "Valido2": null,
+    "Mensagem": "123 testando!!!"
+  }
+}
 
-`Examples: How to format a pull request\n How to format an issue`
+```
+A transmissão deste JSON resultará na saida abaixo
 
+```
+Carga recebida com sucesso!
+Números de elementos encontrados na carga: 6;
+
+[ INT: 31][ INT: 234 ][ FLOAT: 4.213 ][ BOOL: true][ NULL ][CHAR: 123 testando!!!]
+```
 ---
-
 <p align="center">
     <a href="http://zenith.eesc.usp.br">
     <img src="https://img.shields.io/badge/Check%20out-Zenith's Oficial Website-black?style=for-the-badge" />
