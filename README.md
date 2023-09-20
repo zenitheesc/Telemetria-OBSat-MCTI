@@ -33,11 +33,19 @@
 
 ## Utilização do servidor de teste (Para participantes)
 
-Na IDE do Arduino, certifique-se que a biblioteca ESP32 esteja instalada, Clique no [link](https://www.youtube.com/watch?v=Ozr1SXwir9g) caso não saiba como instalar. Selecione a placa desejada é de upload no codigo `obsat-server.ino`. Os parametros de acesso são:
+Na IDE do Arduino, certifique-se que a biblioteca ESP32 esteja instalada (clique no [link](https://www.youtube.com/watch?v=Ozr1SXwir9g) caso não saiba como instalar). 
+
+Selecione a placa desejada e  carregue o codigo `obsat-server.ino`. 
+
+Agora você pode fazer o seu satélite se comunicar com a placa escolhida, simulando o servidor embarcado na sonda.
+
+Os parametros de acesso são:
 - ssid: `obsat-test-server`
 - psk: `obsatkey`
 
-Agora basta implementar sua logica para acessar o servidor Web. O servidor apenas coleta dados de objetos chamados `"payload"`
+Basta implementar sua logica para acessar o servidor Web pelo seu satélite. 
+
+O servidor apenas coleta dados de objetos chamados `"payload"`.
 
 #### Exemplo
 ```
