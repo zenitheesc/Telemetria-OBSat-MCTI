@@ -11,8 +11,6 @@
 #include <WiFi.h>
 #include "cJSON.h"
 
-// pq a Arduino IDE não processa ANSI space sequences?
-
 void json_deserialize(cJSON *element)
 {
   if (element->type == cJSON_Array) {
