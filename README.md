@@ -8,26 +8,26 @@
     <a href="https://eesc.usp.br/">
     <img src="https://img.shields.io/badge/Linked%20to-EESC--USP-black?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/zenitheesc/obsat-telemetry/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/zenitheesc/obsat-telemetry?style=for-the-badge"/>
+    <a href="https://github.com/zenitheesc/Telemetria-OBSat-MCTI/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/zenitheesc/Telemetria-OBSat-MCTI?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/zenitheesc/obsat-telemetry/issues">
-    <img src="https://img.shields.io/github/issues/zenitheesc/obsat-telemetry?style=for-the-badge"/>
+    <a href="https://github.com/zenitheesc/Telemetria-OBSat-MCTI/issues">
+    <img src="https://img.shields.io/github/issues/zenitheesc/Telemetria-OBSat-MCTI?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/zenitheesc/obsat-telemetry/commits/main">
-    <img src="https://img.shields.io/github/commit-activity/m/zenitheesc/obsat-telemetry?style=for-the-badge">
+    <a href="https://github.com/zenitheesc/Telemetria-OBSat-MCTI/commits/main">
+    <img src="https://img.shields.io/github/commit-activity/m/zenitheesc/Telemetria-OBSat-MCTI?style=for-the-badge">
     </a>
-    <a href="https://github.com/zenitheesc/obsat-telemetry/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/zenitheesc/obsat-telemetry?style=for-the-badge"/>
+    <a href="https://github.com/zenitheesc/Telemetria-OBSat-MCTI/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/zenitheesc/Telemetria-OBSat-MCTI?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/zenitheesc/obsat-telemetry/commits/main">
-    <img src="https://img.shields.io/github/last-commit/zenitheesc/obsat-telemetry?style=for-the-badge"/>
+    <a href="https://github.com/zenitheesc/Telemetria-OBSat-MCTI/commits/main">
+    <img src="https://img.shields.io/github/last-commit/zenitheesc/Telemetria-OBSat-MCTI?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/zenitheesc/obsat-telemetry/issues">
-    <img src="https://img.shields.io/github/issues-raw/zenitheesc/obsat-telemetry?style=for-the-badge" />
+    <a href="https://github.com/zenitheesc/Telemetria-OBSat-MCTI/issues">
+    <img src="https://img.shields.io/github/issues-raw/zenitheesc/Telemetria-OBSat-MCTI?style=for-the-badge" />
     </a>
-    <a href="https://github.com/zenitheesc/obsat-telemetry/pulls">
-    <img src = "https://img.shields.io/github/issues-pr-raw/zenitheesc/obsat-telemetry?style=for-the-badge">
+    <a href="https://github.com/zenitheesc/Telemetria-OBSat-MCTI/pulls">
+    <img src = "https://img.shields.io/github/issues-pr-raw/zenitheesc/Telemetria-OBSat-MCTI?style=for-the-badge">
     </a>
 </p>
 
