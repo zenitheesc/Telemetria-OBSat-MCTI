@@ -76,5 +76,5 @@ Números de elementos encontrados na carga: 6;
 
 </p>
 <p align = "center">
-<a href="zenith.eesc@gmail.com">zenith.eesc@gmail.com</a>
+<a href="zenith@usp.br">zenith@usp.br</a>
 </p>
