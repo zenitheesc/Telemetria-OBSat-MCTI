@@ -1,5 +1,5 @@
-<h1 align="center" style="color:white; background-color:black">[Obsat-Telemetry]</h1>
-<h4 align="center">Zenith Web Server for OBSAT telemetry tests</h4>
+<h1 align="center" style="color:white; background-color:black">Telemetria OBSat-MCTI</h1>
+<h4 align="center">Web Server para testes de telemetria da OBSat</h4>
 
 <p align="center">
 	<a href="http://zenith.eesc.usp.br/">
@@ -8,36 +8,28 @@
     <a href="https://eesc.usp.br/">
     <img src="https://img.shields.io/badge/Linked%20to-EESC--USP-black?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/zenitheesc/new-zenith-template/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/zenitheesc/new-zenith-template?style=for-the-badge"/>
+    <a href="https://github.com/zenitheesc/obsat-telemetry/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/zenitheesc/obsat-telemetry?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/zenitheesc/new-zenith-template/issues">
-    <img src="https://img.shields.io/github/issues/zenitheesc/new-zenith-template?style=for-the-badge"/>
+    <a href="https://github.com/zenitheesc/obsat-telemetry/issues">
+    <img src="https://img.shields.io/github/issues/zenitheesc/obsat-telemetry?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/zenitheesc/new-zenith-template/commits/main">
-    <img src="https://img.shields.io/github/commit-activity/m/zenitheesc/new-zenith-template?style=for-the-badge">
+    <a href="https://github.com/zenitheesc/obsat-telemetry/commits/main">
+    <img src="https://img.shields.io/github/commit-activity/m/zenitheesc/obsat-telemetry?style=for-the-badge">
     </a>
-    <a href="https://github.com/zenitheesc/new-zenith-template/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/zenitheesc/new-zenith-template?style=for-the-badge"/>
+    <a href="https://github.com/zenitheesc/obsat-telemetry/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/zenitheesc/obsat-telemetry?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/zenitheesc/new-zenith-template/commits/main">
-    <img src="https://img.shields.io/github/last-commit/zenitheesc/new-zenith-template?style=for-the-badge"/>
+    <a href="https://github.com/zenitheesc/obsat-telemetry/commits/main">
+    <img src="https://img.shields.io/github/last-commit/zenitheesc/obsat-telemetry?style=for-the-badge"/>
     </a>
-    <a href="https://github.com/zenitheesc/new-zenith-template/issues">
-    <img src="https://img.shields.io/github/issues-raw/zenitheesc/new-zenith-template?style=for-the-badge" />
+    <a href="https://github.com/zenitheesc/obsat-telemetry/issues">
+    <img src="https://img.shields.io/github/issues-raw/zenitheesc/obsat-telemetry?style=for-the-badge" />
     </a>
-    <a href="https://github.com/zenitheesc/new-zenith-template/pulls">
-    <img src = "https://img.shields.io/github/issues-pr-raw/zenitheesc/new-zenith-template?style=for-the-badge">
+    <a href="https://github.com/zenitheesc/obsat-telemetry/pulls">
+    <img src = "https://img.shields.io/github/issues-pr-raw/zenitheesc/obsat-telemetry?style=for-the-badge">
     </a>
 </p>
-
-<p align="center">
-    <a href="#environment-and-tools">Environment and Tools</a> •
-    <a href="#steps-to-run-and-debug">Steps to run and debug</a> •
-    <a href="#how-to-contribute">How to contribute?</a>
-</p>
-
-
 
 ## Utilização do servidor de teste (Para participantes)
 
