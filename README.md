@@ -40,23 +40,22 @@
 ##### Exemplo:
 ![http-post](image/http-post-example.png)
 
-Para mais informações sobre os status de validação, veja a sessão `Deu erro, e agora?` neste [link](https://github.com/OBSAT-MCTI/OBSAT-MCTI/tree/main/servidor_testes)
+Para mais informações sobre os status de validação, veja a sessão `Deu erro, e agora?` neste [link](https://github.com/OBSAT-MCTI/OBSAT-MCTI/tree/main/servidor_testes).
 
 ### Utilização do servidor de teste
-Para testar a interação com o servidor embarcado da Sonda e os modulos programados no BIPES, é necessario ter uma ESP32 que irá agir como servidor
+Para testar a interação com o servidor embarcado da Sonda e os modulos programados no BIPES, é necessario ter uma ESP32 que irá agir como servidor como esquematizado na imagem
 
-![http-arch](image/http-arch.png)
+<p>
+  <img src="https://github.com/zenitheesc/Telemetria-OBSat-MCTI/blob/main/image/http-arch.png" width=100% weight=100%  />
+<p/>
 
-Na IDE do Arduino, certifique-se que a biblioteca ESP32 esteja instalada (clique no [link](https://www.youtube.com/watch?v=Ozr1SXwir9g) caso não saiba como instalar). 
+Para instalação do firmware na IDE do Arduino, certifique-se que a biblioteca ESP32 esteja instalada (clique no [link](https://www.youtube.com/watch?v=Ozr1SXwir9g) caso não saiba como instalar). Selecione a placa desejada e  carregue o codigo `obsat-server.ino`.
 
-Selecione a placa desejada e  carregue o codigo `obsat-server.ino`.
+Para fazer testes pelo BIPES, [aqui](https://bipes.net.br/ide/?lang=pt-br#6kgy85) um exemplo de implementaçao, basta estar na rede do servidor e deteminar `http://192.168.4.1/` para HTTP POST Request. Com isso você poderá fazer o seu satélite se comunicar com o servidor, simulando a operação na sonda.
 
-Para fazer testes pelo BIPES, [aqui](https://bipes.net.br/ide/?lang=pt-br#6kgy85) um exemplo de implementaçao, basta estar na rede do servidor e deteminar `http://192.168.4.1/` como rota. Com isso você poderá fazer o seu satélite se comunicar com a placa escolhida, simulando o servidor embarcado na sonda.
-
-Os parametros do ponto de Wi-Fi de acesso são:
-- ssid: `obsat-test-server`
-- psk: `obsatkey`
-
+Os parametros do ponto de acesso do Wi-Fi são:
+- SSID: `obsat-test-server`
+- PSK: `obsatkey`
 
 ### Exemplo de transmissão
 ```
@@ -84,7 +83,6 @@ Os parametros do ponto de Wi-Fi de acesso são:
     "motion_detected": true
   }
 }
-
 
 ```
 A transmissão deste JSON resultará na resposta abaixo
