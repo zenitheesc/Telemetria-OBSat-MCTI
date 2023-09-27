@@ -4,12 +4,19 @@
  *
  */
 
+// TODO: removal of Serial output, all messages are handled by HTTP
+
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/event_groups.h"
 #include "esp_http_server.h"
 #include <WiFi.h>
 #include "cJSON.h"
+
+size_t bytes_size = 0;
+size_t response_offset = 0;
+const char* strs[] = {"equipe","bateria","temperatura","pressao","giroscopio","acelerometro","payload"};
+char response[1000];
 
 void json_deserialize(cJSON *element)
 {
@@ -28,30 +35,41 @@ void json_deserialize(cJSON *element)
     json_deserialize_not_object(element);
   }
 }
-//
+
 void json_deserialize_not_object(cJSON* element)
 {
   if (element->type == cJSON_Invalid || element->type == cJSON_NULL) {
-
-    Serial.print("[ NULL ]");
+    Serial.print("[NULL]");
+    response_offset += snprintf(response + response_offset, sizeof(response) - response_offset,"[NULL]");
+    bytes_size += 1; 
   } else if (element->type == cJSON_False) {
-    Serial.print("[ BOOL: false ]");
+    Serial.print("[BOOL: false]");
+    response_offset += snprintf(response + response_offset, sizeof(response) - response_offset,"[BOOL: false]");
+    bytes_size += 1; 
   } else if (element->type == cJSON_True) {
-    Serial.print("[ BOOL: true ]");
+    Serial.print("[BOOL: true]");
+    response_offset += snprintf(response + response_offset, sizeof(response) - response_offset,"[BOOL: true]");
+    bytes_size += 1; 
   } else if (element->type == cJSON_Number) {
     if (element->valueint == element->valuedouble) {
-      Serial.print("[ INT: ");
+      Serial.print("[INT: ");
       Serial.print(element->valueint);
       Serial.print("]");
+      response_offset += snprintf(response + response_offset, sizeof(response) - response_offset,"[INT: %d]",element->valueint);
+      bytes_size += 4; 
     } else {
-      Serial.print("[ FLOAT: ");
+      Serial.print("[FLOAT: ");
       Serial.print(element->valuedouble);
       Serial.print("]");
+      response_offset += snprintf(response + response_offset, sizeof(response) - response_offset,"[FLOAT: %.3lf]", element->valuedouble);
+      bytes_size += 8; 
     }
   } else if (element->type == cJSON_String) {
-    Serial.print("[ CHAR:");
+    Serial.print("[CHAR: ");
     Serial.print(element->valuestring);
     Serial.print("]");
+    response_offset += snprintf(response + response_offset, sizeof(response) - response_offset,"[STRING: %s]", element->valuestring);
+    bytes_size += strlen(element->valuestring);
   }
 }
 //
@@ -72,27 +90,48 @@ esp_err_t root_post_handler(httpd_req_t *req)
   }
 
   buf[total_len] = '\0';
-  // Json deserialization
+
   cJSON *root = cJSON_Parse(buf);
-  cJSON *payload = cJSON_GetObjectItem(root, "payload");
-  if (cJSON_IsObject(payload)) {
-    int item_num = cJSON_GetArraySize(payload);
-    Serial.println("Carga recebida com sucesso!");
-    Serial.print("Números de elementos encontrados na carga: ");
-    Serial.println(item_num);
-    for (int i = 0; i < item_num; i++) {
-      cJSON *element = cJSON_GetArrayItem(payload, i);
-      json_deserialize(element);
+  for (int i = 0; i < 7; i++) {
+    cJSON *val = cJSON_GetObjectItem(root, strs[i]);
+    if (val != NULL){
+    } else {
+      // 🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯
+      Serial.println("O JSON recebido não segue a formatação correta");
+      httpd_resp_send(req, "O JSON recebido não segue a formatação correta", HTTPD_RESP_USE_STRLEN);
+      cJSON_Delete(root);
+      free(buf);
+      return ESP_OK;
     }
-    Serial.println();
-  } else {
-      Serial.println("Carga util não encontrada");
   }
-  Serial.println("Certifique que os tipos de dados conferem");
-  Serial.println(" - Listas e objetos contam como \"elemento\"");
-  Serial.println(" - Se floats não tiverem parte decimal, eles são interpretados como INT");
-  Serial.println(" - Strings contam como CHAR");
-  httpd_resp_send(req, "Carga Recebida", HTTPD_RESP_USE_STRLEN);
+  bytes_size = 0;
+  cJSON *payload = cJSON_GetObjectItem(root, "payload");
+  int item_num = cJSON_GetArraySize(payload);
+  Serial.println("JSON recebido com sucesso!");
+  Serial.print("Números de elementos encontrados na carga: ");
+  Serial.println(item_num);
+  for (int i = 0; i < item_num; i++) {
+    cJSON *element = cJSON_GetArrayItem(payload, i);
+    json_deserialize(element);
+    if (bytes_size > 91) {
+      Serial.println();
+      Serial.print("Quantidade de bytes excece o maximo permitido (");
+      Serial.print(bytes_size);
+      Serial.println("/90 bytes)");
+      char except[61];
+      snprintf(except, 61 ,"Quantidade de bytes excede o maximo permitido (%d/90 bytes)", bytes_size);
+      httpd_resp_send(req, except, HTTPD_RESP_USE_STRLEN);
+      cJSON_Delete(root);
+      free(buf);
+      return ESP_OK;
+    }
+  }
+  snprintf(response + response_offset, sizeof(response) - response_offset,"(%d/90)", bytes_size);
+  Serial.println();
+  Serial.println("Transferência bem sucedida");
+  httpd_resp_send(req, response, HTTPD_RESP_USE_STRLEN);
+  memset(response,0,sizeof(response)); 
+  response_offset = 0;
   cJSON_Delete(root);
   free(buf);
   return ESP_OK;
@@ -129,7 +168,7 @@ void setup() {
   Serial.begin(115200);
   WiFi.mode(WIFI_AP);
   WiFi.softAP(ssid, password);
-
+  memset(response,0,sizeof(response)); 
   IPAddress myIP = WiFi.softAPIP();
   Serial.print("AP IP address: ");
   Serial.println(myIP);
