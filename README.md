@@ -32,6 +32,18 @@
     </a>
 </p>
 
+### Objetivo
+
+Este repositório serve para que você possa usar um microcontrolador externo ao seu satélite (ESP32) para simular o servidor embarcado na sonda e verificar se a implementação da sua telemetria esta correta.
+
+### Funcionamento
+
+Depois de carregar o programa na sua ESP32, deixe ela conectada ao USB do seu computador com um monitor serial ligado, ela vai criar uma rede wi-fi para que o seu satélite se conecte e envie os pacotes de telemetria, se a sua implementação estiver funcionando você poderá ver no monitor serial que o seu satélite se conectou e os pacotes enviados por ele.
+
+#### Objservações
+
+Tenha atenção aos requisitos da telemetria definidos no edital da 2ª OBSat-MCTI
+
 ### Formatação JSON e validação
 #### Passo 1:
  Verificar se o JSON é valido, sites de analise de json como [este](https://jsonformatter.org/json-viewer) verificam se a estrutura é valida.
@@ -90,6 +102,11 @@ A transmissão deste JSON resultará na resposta abaixo
 ```
 [STRING: work work work][FLOAT: 22.800][FLOAT: 47.500][INT: 1][INT: 2][INT: 3][FLOAT: 0.980][FLOAT: 0.050][FLOAT: 9.720][BOOL: true](68/90)
 ```
+
+### F.A.Q.
+
+Caso tenha algum problema com a utilização do servidor verifique a aba "Issues" do repositório, se ninguem tiver relatado o mesmo problema que o seu, abra um novo issue que algum membro do Zenith irá te ajudar a resolver assim que possível.
+
 ---
 <p align="center">
     <a href="http://zenith.eesc.usp.br">
