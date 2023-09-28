@@ -105,7 +105,7 @@ A transmissão deste JSON resultará na resposta abaixo
 
 ### F.A.Q.
 
-Caso tenha algum problema com a utilização do servidor verifique a aba "Issues" do repositório, se ninguem tiver relatado o mesmo problema que o seu, abra um novo issue que algum membro do Zenith irá te ajudar a resolver assim que possível.
+Caso tenha algum problema com a utilização do servidor verifique a aba "Issues" do repositório, se ninguem tiver relatado o mesmo problema que o seu, abra um novo issue descrevendo o problema, assim que possível algum membro do Zenith irá te ajudar a resolver.
 
 ---
 <p align="center">
