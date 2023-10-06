@@ -67,7 +67,7 @@ Para fazer testes pelo BIPES, [aqui](https://bipes.net.br/ide/?lang=pt-br#6kgy85
 
 Os parametros do ponto de acesso do Wi-Fi são:
 - SSID: `obsat-test-server`
-- PSK: `obsatkey`
+- PSK: `obsatpass`
 
 ### Exemplo de transmissão
 ```
