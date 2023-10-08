@@ -16,8 +16,8 @@
 size_t bytes_size = 0;
 size_t response_offset = 0;
 const char* strs[] = {"equipe","bateria","temperatura","pressao","giroscopio","acelerometro","payload"};
-char response[1000];
 
+char response[1000];
 void json_deserialize(cJSON *element)
 {
   if (element->type == cJSON_Array) {
@@ -90,13 +90,15 @@ esp_err_t root_post_handler(httpd_req_t *req)
   }
 
   buf[total_len] = '\0';
-
   cJSON *root = cJSON_Parse(buf);
   for (int i = 0; i < 7; i++) {
     cJSON *val = cJSON_GetObjectItem(root, strs[i]);
+    int item_num = cJSON_GetArraySize(val);
     if (val != NULL){
     } else {
       // 🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯🤯
+      Serial.print(strs[i]);
+      Serial.println(" - aparenta estar incorreto!");
       Serial.println("O JSON recebido não segue a formatação correta");
       httpd_resp_send(req, "O JSON recebido não segue a formatação correta", HTTPD_RESP_USE_STRLEN);
       cJSON_Delete(root);
@@ -104,6 +106,15 @@ esp_err_t root_post_handler(httpd_req_t *req)
       return ESP_OK;
     }
   }
+
+  int equipe = 0;
+  cJSON *nM = cJSON_GetObjectItem(root, "equipe");
+  if (nM != NULL && nM->type == cJSON_Number) {
+      equipe = nM->valueint;
+  }
+
+  Serial.print("Recebendo dados da equipe: ");
+  Serial.println(equipe);
   bytes_size = 0;
   cJSON *payload = cJSON_GetObjectItem(root, "payload");
   int item_num = cJSON_GetArraySize(payload);

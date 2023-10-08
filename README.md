@@ -42,7 +42,8 @@ Depois de carregar o programa na sua ESP32, deixe ela conectada ao USB do seu co
 
 #### Objservações
 
-Tenha atenção aos requisitos da telemetria definidos no edital da 2ª OBSat-MCTI
+- Tenha atenção aos requisitos da telemetria definidos no edital da 2ª OBSat-MCTI
+- O servidor não formata jsons, certifique-se de enviar JSONs formatados
 
 ### Formatação JSON e validação
 #### Passo 1:
@@ -63,7 +64,7 @@ Para testar a interação com o servidor embarcado da Sonda e os modulos program
 
 Para instalação do firmware na IDE do Arduino, certifique-se que a biblioteca ESP32 esteja instalada (clique no [link](https://www.youtube.com/watch?v=Ozr1SXwir9g) caso não saiba como instalar). Selecione a placa desejada e  carregue o codigo `obsat-server.ino`.
 
-Para fazer testes pelo BIPES, [aqui](https://bipes.net.br/ide/?lang=pt-br#6kgy85) um exemplo de implementaçao, basta estar na rede do servidor e deteminar `http://192.168.4.1/` para HTTP POST Request. Com isso você poderá fazer o seu satélite se comunicar com o servidor, simulando a operação na sonda.
+Para fazer testes pelo BIPES, [aqui](https://bipes.net.br/ide/?lang=pt-br#btyyen) um exemplo de implementaçao, basta estar na rede do servidor e deteminar `http://192.168.4.1/` para HTTP POST Request. Com isso você poderá fazer o seu satélite se comunicar com o servidor, simulando a operação na sonda.
 
 Os parametros do ponto de acesso do Wi-Fi são:
 - SSID: `obsat-test-server`
